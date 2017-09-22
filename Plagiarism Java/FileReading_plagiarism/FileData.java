@@ -41,14 +41,15 @@ public class FileData {
 	protected String filechars;
 	protected int[] hash1;
 	protected ArrayList<Integer> pmod;
+
+	/*
+	 ------------------------------------------------
+	 Constructor for File Data Class.
+	 ------------------------------------------------
+	 */
 	
 	FileData(String filepath,String filename){
 		
-		/*
-		 ------------------------------------------------
-		 Constructor for File Data Class.
-		 ------------------------------------------------
-		 */
 		this.isfileempty = true;
 		this.filename = filename;
 		this.filepath = filepath;
@@ -60,14 +61,14 @@ public class FileData {
 		
 	}
 	
+	/*
+	 ------------------------------------------------------
+	 Reads files and removes special characters except '_'
+	 and remove additional spaces and write to 'filewords'.
+	 ------------------------------------------------------
+	 */
+	
 	public void fileReading(){
-		
-		/*
-		 ------------------------------------------------------
-		 Reads files and removes special characters except '_'
-		 and remove additional spaces and write to 'filewords'.
-		 ------------------------------------------------------
-		 */
 		
 		BufferedReader br;
 		FileInputStream fin;
@@ -97,28 +98,28 @@ public class FileData {
 		}
 	}
 	
+	/*
+	 --------------------------------------------------
+	 Splitting 'filewords' and filling them in words
+	 array. 
+	 --------------------------------------------------
+	 */
+	
     public void getWords() {
-    	
-    	/*
-    	 --------------------------------------------------
-    	 Splitting 'filewords' and filling them in words
-    	 array. 
-    	 --------------------------------------------------
-    	 */
     	
 		if(!(this.isfileempty)) {	
 			this.words=this.filewords.split(" ");
 		}		
 	}
     
+	/*
+	 ---------------------------------------------------
+	 Calculate frequencies of words and fill them in
+	 'wordFreqs' Hash map.
+	 ---------------------------------------------------
+	 */
+    
     public void wordsfrequencies() {  	
-    	
-    	/*
-    	 ---------------------------------------------------
-    	 Calculate frequencies of words and fill them in
-    	 'wordFreqs' Hash map.
-    	 ---------------------------------------------------
-    	 */
     	
     	if(!(this.isfileempty)) {
 	    	for (String s:this.words){
@@ -132,12 +133,13 @@ public class FileData {
     	}    	
     }
     
+	/*
+	 -----------------------------------------------------
+	 Creates hash values of string to feed in array. 
+	 -----------------------------------------------------
+	 */
+    
     public int hasher(String string1,int pin){
-    	/*
-    	 -----------------------------------------------------
-    	 Creates hash values of string to feed in array. 
-    	 -----------------------------------------------------
-    	 */
     	
 		int h = 0;
 		for(int i = 0;i<5;i++)
@@ -147,15 +149,15 @@ public class FileData {
 		return h;
 	}
     
+	/*
+	 ----------------------------------------------------------------
+	 This function removes stop words and forms a single string of 
+	 characters(file chars) which will be hashed to hash1 array which
+	 in turn will give p-Mod Array list.  
+	 ----------------------------------------------------------------
+	 */
+    
     public void removestopwords(ArrayList <String> stopword) {
-    	
-    	/*
-    	 ----------------------------------------------------------------
-    	 This function removes stop words and forms a single string of 
-    	 characters(file chars) which will be hashed to hash1 array which
-    	 in turn will give p-Mod Array list.  
-    	 ----------------------------------------------------------------
-    	 */
     	
     	if(!(this.isfileempty)) {
     		
