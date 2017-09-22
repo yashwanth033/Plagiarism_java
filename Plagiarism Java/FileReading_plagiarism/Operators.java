@@ -1,17 +1,32 @@
-/**
- * 
+/*
+@Author Yaswant Reddy Kadiyam
+-----------------------------------------------------------------
+Plagiarism project in java
+-----------------------------------------------------------------  
  */
+
 package FileReading_plagiarism;
 
 import java.util.ArrayList;
 
 /**
  * @author Yaswant Reddy Kadiyam
- *
+-------------------------------------------------------------------
+The operator class has functions for calculating cosine similarity,
+LCS and Finger-printing.
+-------------------------------------------------------------------
  */
 public class Operators {
 	
 	static void bagOfWords(FileData file1,FileData file2) {
+		
+		/*
+		--------------------------------------------------------------
+		This function takes two files and calculate their cosine
+		similarity and print it.
+		--------------------------------------------------------------
+		*/
+		
 		if(file1.isfileempty||file2.isfileempty) {
 			System.out.printf("%s\t\t","Empty");
 		}
@@ -39,6 +54,13 @@ public class Operators {
 	}
 	
 	static void lCS(FileData file1, FileData file2) {
+		
+		/*
+		 ------------------------------------------------------
+		 This function takes two files and calculate their 
+		 L.C.S and print it.
+		 ------------------------------------------------------
+		 */
 
 		if(file1.isfileempty||file2.isfileempty) {
 			System.out.printf("%s\t\t","Empty");
@@ -102,10 +124,15 @@ public class Operators {
 		
 		
 	}
-
-	
 	
 	static void fingerprinting(FileData file1,FileData file2) {
+		
+		/*
+		 ------------------------------------------------------------
+		 This function takes two files to calculate their finger
+		 printing similarity and print it.
+		 ------------------------------------------------------------
+		 */
 		
 		if((file1.isfileempty||file2.isfileempty)) {
 			System.out.print("EMPTY\t\t");
